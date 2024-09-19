@@ -40,20 +40,26 @@ begin
 
   -- Combinatoriel logic
 
-  cl : process (req,ab,state,reg_a,reg_b,reset)
+  cl : process (req,ab,state,reset) --, reg_a,reg_b)
   begin
-
+  
+    reg_a <= "0000000000000000";
+	reg_b <= "0000000000000000";
+	ack <= '0';
+	
     case (state) is
 
         WHEN INIT =>
 	          ack <= '0';
 	          reg_a <= AB;
+	          Reg_A_test <= AB;
+	          --Reg_A_test <= reg_a;
 		      teststate <= "0000";
 		  IF req='0' THEN
 			  next_state <= INIT;
 		  ELSIF req='1' THEN
 		      ack <= '1';
-			 next_state <= ACK_A;
+			  next_state <= ACK_A;
 		  END IF;
 	   WHEN ACK_A =>
 		  teststate <= "0001";
@@ -104,13 +110,10 @@ begin
     IF reset='1' THEN
 	-- Need to reset the state and the registers
 	state <= INIT;
-	reg_a <= (others=>'0');
-	reg_b <= (others=>'0');
-	ack <= '0';
     ELSIF rising_edge(clk) THEN
 	state <= next_state;
-	reg_a <= next_reg_a;
-	reg_b <= next_reg_b;
+	--reg_a <= next_reg_a;
+	--reg_b <= next_reg_b;
     END IF;
 	
 

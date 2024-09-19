@@ -8,44 +8,8 @@
   **** SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
   **** IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
   **** SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-  **** Start of session at: Thu Sep 19 14:17:07 2024
+  **** Start of session at: Thu Sep 19 15:33:21 2024
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 
 source gcd.tcl -notrace
-create_project: Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 491.617 ; gain = 198.727
-Command: link_design -top gcd -part xc7a100tcsg324-1
-Design is defaulting to srcset: sources_1
-Design is defaulting to constrset: constrs_1
-INFO: [Device 21-403] Loading part xc7a100tcsg324-1
-INFO: [Device 21-9227] Part: xc7a100tcsg324-1 does not have CEAM library.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 916.949 ; gain = 0.000
-INFO: [Project 1-479] Netlist was created with Vivado 2024.1
-INFO: [Project 1-570] Preparing netlist for logic optimization
-Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1003.809 ; gain = 0.262
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1004.570 ; gain = 0.000
-INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
-
-5 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
-link_design completed successfully
-link_design: Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1033.418 ; gain = 541.801
-Command: opt_design
-Attempting to get a license for feature 'Implementation' and/or device 'xc7a100t'
-INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a100t'
-Running DRC as a precondition to command opt_design
-
-Starting DRC Task
-INFO: [DRC 23-27] Running DRC with 2 threads
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net ack_OBUF has multiple drivers: ack_reg/Q, and ack_reg__0/Q.
-INFO: [Project 1-461] DRC finished with 1 Errors
-INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
-ERROR: [Vivado_Tcl 4-78] Error(s) found during DRC. Opt_design not run.
-
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 1062.551 ; gain = 29.133
-INFO: [Common 17-83] Releasing license: Implementation
-10 Infos, 0 Warnings, 0 Critical Warnings and 2 Errors encountered.
-opt_design failed
-ERROR: [Common 17-39] 'opt_design' failed due to earlier errors.
-
-INFO: [Common 17-206] Exiting Vivado at Thu Sep 19 14:17:29 2024...

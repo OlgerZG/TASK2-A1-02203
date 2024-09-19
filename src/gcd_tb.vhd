@@ -62,26 +62,6 @@ begin
 	begin
 		clk <= '0'; reset <= '1'; req <= '0'; AB <= "0000100011111100"; wait for 15 ns;
 		clk <= '1'; reset <= '1'; req <= '0'; AB <= "0000100011111100"; wait for 15 ns;
-		clk <= '0'; reset <= '1'; req <= '0'; AB <= "0000100011111100"; wait for 15 ns;
-		clk <= '1'; reset <= '1'; req <= '0'; AB <= "0000100011111100"; wait for 15 ns;
-		clk <= '0'; reset <= '1'; req <= '0'; AB <= "0000100011111100"; wait for 15 ns;
-		clk <= '1'; reset <= '1'; req <= '0'; AB <= "0000100011111100"; wait for 15 ns;
-		clk <= '0'; reset <= '0'; req <= '1'; AB <= "0000100011111101"; wait for 15 ns;
-		clk <= '1'; reset <= '0'; req <= '1'; AB <= "0000100011111101"; wait for 15 ns;
-		clk <= '0'; reset <= '0'; req <= '1'; AB <= "0000100011111101"; wait for 15 ns;
-		clk <= '1'; reset <= '0'; req <= '1'; AB <= "0000100011111101"; wait for 15 ns;
-		clk <= '0'; reset <= '0'; req <= '1'; AB <= "0000100011111101"; wait for 15 ns;
-		clk <= '1'; reset <= '0'; req <= '1'; AB <= "0000100011111101"; wait for 15 ns;
-		clk <= '0'; reset <= '0'; req <= '1'; AB <= "0000100011111101"; wait for 15 ns;
-		clk <= '1'; reset <= '0'; req <= '1'; AB <= "0000100011111101"; wait for 15 ns;
-		clk <= '0'; reset <= '0'; req <= '1'; AB <= "0000100011111101"; wait for 15 ns;
-		clk <= '1'; reset <= '0'; req <= '1'; AB <= "0000100011111101"; wait for 15 ns;
-		clk <= '0'; reset <= '0'; req <= '1'; AB <= "0000100011111101"; wait for 15 ns;
-		clk <= '1'; reset <= '0'; req <= '1'; AB <= "0000100011111101"; wait for 15 ns;
-		clk <= '0'; reset <= '0'; req <= '1'; AB <= "0000100011111101"; wait for 15 ns;
-		clk <= '1'; reset <= '0'; req <= '1'; AB <= "0000100011111101"; wait for 15 ns;
-		clk <= '0'; reset <= '0'; req <= '1'; AB <= "0000100011111101"; wait for 15 ns;
-		clk <= '1'; reset <= '0'; req <= '1'; AB <= "0000100011111101"; wait for 15 ns;
 		clk <= '0'; reset <= '0'; req <= '1'; AB <= "0000100011111101"; wait for 15 ns;
 		clk <= '1'; reset <= '0'; req <= '1'; AB <= "0000100011111101"; wait for 15 ns;
 		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000100011111101"; wait for 15 ns;

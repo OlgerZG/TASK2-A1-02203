@@ -3,8 +3,8 @@
 # SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Thu Sep 19 14:16:08 2024
-# Process ID: 27656
+# Start of session at: Thu Sep 19 15:31:58 2024
+# Process ID: 3756
 # Current directory: C:/Users/Laura/Desktop/TASK2-A1-02203/task2.runs/synth_1
 # Command line: vivado.exe -log gcd.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source gcd.tcl
 # Log file: C:/Users/Laura/Desktop/TASK2-A1-02203/task2.runs/synth_1/gcd.vds
@@ -19,6 +19,6 @@
 # Host memory       :17002 MB
 # Swap memory       :10200 MB
 # Total Virtual     :27203 MB
-# Available Virtual :8186 MB
+# Available Virtual :7984 MB
 #-----------------------------------------------------------
 source gcd.tcl -notrace

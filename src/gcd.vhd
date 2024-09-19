@@ -52,8 +52,9 @@ begin
 		  END IF;
 	   WHEN ACK_A =>
 		  ack <= '1';
-	          IF req='0' THEN
+	       IF req='0' THEN
 			 next_state <= STORE_B;
+	       END IF;
 	   WHEN STORE_B =>
 		  ack <= '0';
 		  reg_B <= AB;
@@ -90,7 +91,7 @@ begin
 
     IF reset='1' THEN
 	-- Need to reset the state and the registers
-	state <= s0;
+	state <= INIT;
 	reg_a <= (others=>'0');
 	reg_b <= (others=>'0');
 	ack <= '0';

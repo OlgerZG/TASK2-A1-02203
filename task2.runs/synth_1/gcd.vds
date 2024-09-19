@@ -1,0 +1,360 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Thu Sep 19 14:16:08 2024
+# Process ID: 27656
+# Current directory: C:/Users/Laura/Desktop/TASK2-A1-02203/task2.runs/synth_1
+# Command line: vivado.exe -log gcd.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source gcd.tcl
+# Log file: C:/Users/Laura/Desktop/TASK2-A1-02203/task2.runs/synth_1/gcd.vds
+# Journal file: C:/Users/Laura/Desktop/TASK2-A1-02203/task2.runs/synth_1\vivado.jou
+# Running On        :DESKTOP-4VNSCKA
+# Platform          :Windows Server 2016 or Windows 10
+# Operating System  :19045
+# Processor Detail  :Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz
+# CPU Frequency     :2592 MHz
+# CPU Physical cores:6
+# CPU Logical cores :12
+# Host memory       :17002 MB
+# Swap memory       :10200 MB
+# Total Virtual     :27203 MB
+# Available Virtual :8186 MB
+#-----------------------------------------------------------
+source gcd.tcl -notrace
+create_project: Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 492.062 ; gain = 197.457
+Command: read_checkpoint -auto_incremental -incremental C:/Users/Laura/Desktop/TASK2-A1-02203/task2.srcs/utils_1/imports/synth_1/gcd.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/Laura/Desktop/TASK2-A1-02203/task2.srcs/utils_1/imports/synth_1/gcd.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top gcd -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 11392
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 954.211 ; gain = 450.270
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'gcd' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:27]
+INFO: [Synth 8-256] done synthesizing module 'gcd' (0#1) [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:27]
+WARNING: [Synth 8-3848] Net next_reg_a in module/entity gcd does not have driver. [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:31]
+WARNING: [Synth 8-3848] Net next_reg_b in module/entity gcd does not have driver. [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:31]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1063.605 ; gain = 559.664
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1063.605 ; gain = 559.664
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1063.605 ; gain = 559.664
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+WARNING: [Synth 8-327] inferring latch for variable 'ack_reg' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:97]
+WARNING: [Synth 8-327] inferring latch for variable 'ack_reg' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:46]
+WARNING: [Synth 8-327] inferring latch for variable 'C_reg' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:79]
+WARNING: [Synth 8-327] inferring latch for variable 'next_state_reg' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:49]
+WARNING: [Synth 8-327] inferring latch for variable 'reg_a_reg' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:47]
+WARNING: [Synth 8-327] inferring latch for variable 'reg_b_reg' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:60]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1063.605 ; gain = 559.664
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input   16 Bit       Adders := 2     
++---Registers : 
+	                3 Bit    Registers := 1     
++---Muxes : 
+	   8 Input   16 Bit        Muxes := 2     
+	   3 Input    3 Bit        Muxes := 1     
+	   8 Input    3 Bit        Muxes := 1     
+	   2 Input    3 Bit        Muxes := 1     
+	   8 Input    1 Bit        Muxes := 6     
+	   2 Input    1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+INFO: [Device 21-9227] Part: xc7a100tcsg324-1 does not have CEAM library.
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-3332] Sequential element (C_reg[15]) is unused and will be removed from module gcd.
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'reg_a_reg[15]/Q' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'reg_a_reg[14]/Q' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'reg_a_reg[13]/Q' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'reg_a_reg[12]/Q' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'reg_a_reg[11]/Q' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'reg_a_reg[10]/Q' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'reg_a_reg[9]/Q' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'reg_a_reg[8]/Q' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'reg_a_reg[7]/Q' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'reg_a_reg[6]/Q' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'reg_a_reg[5]/Q' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'reg_a_reg[4]/Q' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'reg_a_reg[3]/Q' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'reg_a_reg[2]/Q' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'reg_a_reg[1]/Q' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'reg_a_reg[0]/Q' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:95]
+WARNING: [Synth 8-3332] Sequential element (reg_a_reg[15]__0) is unused and will be removed from module gcd.
+WARNING: [Synth 8-3332] Sequential element (reg_a_reg[14]__0) is unused and will be removed from module gcd.
+WARNING: [Synth 8-3332] Sequential element (reg_a_reg[13]__0) is unused and will be removed from module gcd.
+WARNING: [Synth 8-3332] Sequential element (reg_a_reg[12]__0) is unused and will be removed from module gcd.
+WARNING: [Synth 8-3332] Sequential element (reg_a_reg[11]__0) is unused and will be removed from module gcd.
+WARNING: [Synth 8-3332] Sequential element (reg_a_reg[10]__0) is unused and will be removed from module gcd.
+WARNING: [Synth 8-3332] Sequential element (reg_a_reg[9]__0) is unused and will be removed from module gcd.
+WARNING: [Synth 8-3332] Sequential element (reg_a_reg[8]__0) is unused and will be removed from module gcd.
+WARNING: [Synth 8-3332] Sequential element (reg_a_reg[7]__0) is unused and will be removed from module gcd.
+WARNING: [Synth 8-3332] Sequential element (reg_a_reg[6]__0) is unused and will be removed from module gcd.
+WARNING: [Synth 8-3332] Sequential element (reg_a_reg[5]__0) is unused and will be removed from module gcd.
+WARNING: [Synth 8-3332] Sequential element (reg_a_reg[4]__0) is unused and will be removed from module gcd.
+WARNING: [Synth 8-3332] Sequential element (reg_a_reg[3]__0) is unused and will be removed from module gcd.
+WARNING: [Synth 8-3332] Sequential element (reg_a_reg[2]__0) is unused and will be removed from module gcd.
+WARNING: [Synth 8-3332] Sequential element (reg_a_reg[1]__0) is unused and will be removed from module gcd.
+WARNING: [Synth 8-3332] Sequential element (reg_a_reg[0]__0) is unused and will be removed from module gcd.
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'reg_b_reg[15]/Q' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'reg_b_reg[14]/Q' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'reg_b_reg[13]/Q' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'reg_b_reg[12]/Q' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'reg_b_reg[11]/Q' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'reg_b_reg[10]/Q' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'reg_b_reg[9]/Q' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'reg_b_reg[8]/Q' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'reg_b_reg[7]/Q' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'reg_b_reg[6]/Q' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'reg_b_reg[5]/Q' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'reg_b_reg[4]/Q' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'reg_b_reg[3]/Q' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'reg_b_reg[2]/Q' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'reg_b_reg[1]/Q' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'reg_b_reg[0]/Q' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:96]
+WARNING: [Synth 8-3332] Sequential element (reg_b_reg[15]__0) is unused and will be removed from module gcd.
+WARNING: [Synth 8-3332] Sequential element (reg_b_reg[14]__0) is unused and will be removed from module gcd.
+WARNING: [Synth 8-3332] Sequential element (reg_b_reg[13]__0) is unused and will be removed from module gcd.
+WARNING: [Synth 8-3332] Sequential element (reg_b_reg[12]__0) is unused and will be removed from module gcd.
+WARNING: [Synth 8-3332] Sequential element (reg_b_reg[11]__0) is unused and will be removed from module gcd.
+WARNING: [Synth 8-3332] Sequential element (reg_b_reg[10]__0) is unused and will be removed from module gcd.
+WARNING: [Synth 8-3332] Sequential element (reg_b_reg[9]__0) is unused and will be removed from module gcd.
+WARNING: [Synth 8-3332] Sequential element (reg_b_reg[8]__0) is unused and will be removed from module gcd.
+WARNING: [Synth 8-3332] Sequential element (reg_b_reg[7]__0) is unused and will be removed from module gcd.
+WARNING: [Synth 8-3332] Sequential element (reg_b_reg[6]__0) is unused and will be removed from module gcd.
+WARNING: [Synth 8-3332] Sequential element (reg_b_reg[5]__0) is unused and will be removed from module gcd.
+WARNING: [Synth 8-3332] Sequential element (reg_b_reg[4]__0) is unused and will be removed from module gcd.
+WARNING: [Synth 8-3332] Sequential element (reg_b_reg[3]__0) is unused and will be removed from module gcd.
+WARNING: [Synth 8-3332] Sequential element (reg_b_reg[2]__0) is unused and will be removed from module gcd.
+WARNING: [Synth 8-3332] Sequential element (reg_b_reg[1]__0) is unused and will be removed from module gcd.
+WARNING: [Synth 8-3332] Sequential element (reg_b_reg[0]__0) is unused and will be removed from module gcd.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 1265.402 ; gain = 761.461
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 1265.402 ; gain = 761.461
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 1265.402 ; gain = 761.461
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1265.402 ; gain = 761.461
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1265.402 ; gain = 761.461
+---------------------------------------------------------------------------------
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin ack_OBUF with 1st driver pin 'ack_reg__0/Q' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin ack_OBUF with 2nd driver pin 'ack_reg/Q' [C:/Users/Laura/Desktop/TASK2-A1-02203/src/gcd.vhd:97]
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        1|Failed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1265.402 ; gain = 761.461
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1265.402 ; gain = 761.461
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1265.402 ; gain = 761.461
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1265.402 ; gain = 761.461
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |BUFG |     2|
+|2     |LUT2 |     1|
+|3     |LUT3 |     1|
+|4     |LUT4 |     4|
+|5     |FDCE |     3|
+|6     |LD   |     5|
+|7     |IBUF |     3|
+|8     |OBUF |    17|
++------+-----+------+
+
+Report Instance Areas: 
++------+---------+-------+------+
+|      |Instance |Module |Cells |
++------+---------+-------+------+
+|1     |top      |       |    36|
++------+---------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1265.402 ; gain = 761.461
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 98 critical warnings and 42 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1265.402 ; gain = 761.461
+Synthesis Optimization Complete : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1265.402 ; gain = 761.461
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1274.375 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 5 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1375.031 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 5 instances were transformed.
+  LD => LDCE: 5 instances
+
+Synth Design complete | Checksum: edfb969
+INFO: [Common 17-83] Releasing license: Synthesis
+19 Infos, 42 Warnings, 98 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 1375.031 ; gain = 877.387
+INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1375.031 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Laura/Desktop/TASK2-A1-02203/task2.runs/synth_1/gcd.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file gcd_utilization_synth.rpt -pb gcd_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Thu Sep 19 14:16:52 2024...

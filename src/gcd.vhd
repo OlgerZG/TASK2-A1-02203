@@ -20,6 +20,9 @@ entity gcd is
     reset : in  std_logic;              -- Reset the module.
     req   : in  std_logic;              -- Input operand / start computation.
     AB    : in  unsigned(15 downto 0);  -- The two operands.
+    teststate : out unsigned(3 downto 0);
+    Reg_A_test : out unsigned(15 downto 0);
+    Reg_B_test : out unsigned(15 downto 0);
     ack   : out std_logic;              -- Computation is complete.
     C     : out unsigned(15 downto 0)); -- The result.
 end gcd;
@@ -45,23 +48,29 @@ begin
         WHEN INIT =>
 	          ack <= '0';
 	          reg_a <= AB;
+		      teststate <= "0000";
 		  IF req='0' THEN
-			 next_state <= INIT;
+			  next_state <= INIT;
 		  ELSIF req='1' THEN
+		      ack <= '1';
 			 next_state <= ACK_A;
 		  END IF;
 	   WHEN ACK_A =>
-		  ack <= '1';
-	       IF req='0' THEN
-			 next_state <= STORE_B;
-	       END IF;
+		  teststate <= "0001";
+	      Reg_A_test <= reg_a;
+	      IF req='0' THEN
+			  next_state <= STORE_B;
+	      END IF;
 	   WHEN STORE_B =>
 		  ack <= '0';
 		  reg_B <= AB;
+	      Reg_B_test <= reg_b;
+		  teststate <= "0010";
 		  IF req='1' THEN
-			 next_state <= LOOP_NODE;
+			  next_state <= LOOP_NODE;
 		  END IF;
 	   WHEN LOOP_NODE =>
+		  teststate <= "0011";
 		  IF reg_b < reg_a THEN
 			 next_state <= CALC_A;
 		  ELSIF reg_a < reg_b THEN
@@ -70,12 +79,15 @@ begin
 			 next_state <= ACK_OUT;
 		  END IF;
 	   WHEN CALC_A =>
+		  teststate <= "0100";
 		  reg_a <= reg_a - reg_b;
 		  next_state <= LOOP_NODE;
 	   WHEN CALC_B =>
+		  teststate <= "0101";
 		  reg_b <= reg_b - reg_a;
 		  next_state <= LOOP_NODE;
 	   WHEN ACK_OUT => 
+		  teststate <= "0110";
 		  C <= reg_a;
 		  ack <= '1';
 		  IF req='0' THEN

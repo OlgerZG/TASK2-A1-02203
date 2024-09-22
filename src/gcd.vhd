@@ -29,10 +29,9 @@ end gcd;
 
 architecture fsmd of gcd is
 
-  type state_type is (INIT, ACK_A, STORE_B, LOOP_NODE, CALC_A, CALC_B, ACK_OUT ); -- Input your own state names
+  type state_type is (INIT, ACK_A, STORE_B, LOOP_NODE, CALC_A, CALC_B, ACK_OUT);
 
-  signal reg_a, next_reg_a, next_reg_b, reg_b : unsigned(15 downto 0);
-
+  signal reg_a, next_reg_a, reg_b, next_reg_b : unsigned(15 downto 0);
   signal state, next_state : state_type;
 
 
@@ -40,20 +39,19 @@ begin
 
   -- Combinatoriel logic
 
-  cl : process (req,ab,state,reset) --, reg_a,reg_b)
+    cl : process (req, AB, state, reset, reg_a, reg_b)
   begin
   
-    reg_a <= "0000000000000000";
-	reg_b <= "0000000000000000";
+    next_reg_a <= reg_a;
+    next_reg_b <= reg_b;
 	ack <= '0';
 	
-    case (state) is
+    case state is
 
         WHEN INIT =>
 	          ack <= '0';
-	          reg_a <= AB;
+	          next_reg_a <= AB;
 	          Reg_A_test <= AB;
-	          --Reg_A_test <= reg_a;
 		      teststate <= "0000";
 		  IF req='0' THEN
 			  next_state <= INIT;
@@ -61,37 +59,43 @@ begin
 		      ack <= '1';
 			  next_state <= ACK_A;
 		  END IF;
+		  
 	   WHEN ACK_A =>
 		  teststate <= "0001";
 	      Reg_A_test <= reg_a;
 	      IF req='0' THEN
 			  next_state <= STORE_B;
 	      END IF;
+	      
 	   WHEN STORE_B =>
 		  ack <= '0';
-		  reg_B <= AB;
+		  next_reg_B <= AB;
 	      Reg_B_test <= reg_b;
 		  teststate <= "0010";
 		  IF req='1' THEN
 			  next_state <= LOOP_NODE;
 		  END IF;
+		  
 	   WHEN LOOP_NODE =>
 		  teststate <= "0011";
 		  IF reg_b < reg_a THEN
 			 next_state <= CALC_A;
 		  ELSIF reg_a < reg_b THEN
 			 next_state <= CALC_B; 
-	          ELSE
+	      ELSE
 			 next_state <= ACK_OUT;
 		  END IF;
+		  
 	   WHEN CALC_A =>
 		  teststate <= "0100";
-		  reg_a <= reg_a - reg_b;
+		  next_reg_a <= reg_a - reg_b;
 		  next_state <= LOOP_NODE;
+		  
 	   WHEN CALC_B =>
 		  teststate <= "0101";
-		  reg_b <= reg_b - reg_a;
+		  next_reg_b <= reg_b - reg_a;
 		  next_state <= LOOP_NODE;
+		  
 	   WHEN ACK_OUT => 
 		  teststate <= "0110";
 		  C <= reg_a;
@@ -99,6 +103,9 @@ begin
 		  IF req='0' THEN
 			 next_state <= INIT;
 	   	  END IF;
+	   	
+	   	WHEN others  =>
+	   	   next_state <= INIT;
         end case;
   end process cl;
 
@@ -109,11 +116,13 @@ begin
 
     IF reset='1' THEN
 	-- Need to reset the state and the registers
-	state <= INIT;
+	   state <= INIT;
+	   reg_a <= (others => '0');  -- Clear reg_a on reset
+       reg_b <= (others => '0');  -- Clear reg_b on reset
     ELSIF rising_edge(clk) THEN
 	state <= next_state;
-	--reg_a <= next_reg_a;
-	--reg_b <= next_reg_b;
+	reg_a <= next_reg_a;
+	reg_b <= next_reg_b;
     END IF;
 	
 

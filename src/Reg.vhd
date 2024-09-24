@@ -34,6 +34,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity Reg is
     Port ( C : in STD_LOGIC_VECTOR (15 downto 0);
            Selc : in STD_LOGIC;
+           reset_int : in STD_LOGIC;
            clk : in STD_LOGIC;
            Operator : out STD_LOGIC_VECTOR (15 downto 0));
 end Reg;
@@ -46,7 +47,11 @@ begin
     begin
         if Selc = '1' then
             if rising_edge (clk) then
-                Mem := C;
+                if reset_int = '1' then
+                    Mem := "0000000000000000";
+                else
+                    Mem := C;
+                end if;
             end if;    
         end if;
         Operator <= Mem;

@@ -7,15 +7,16 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity DataPath is
     Port (
-        ABorALU : in  STD_LOGIC;  -- Select between AB or ALU result
-        LDA     : in  STD_LOGIC;  -- Load control for Register A
-        LDB     : in  STD_LOGIC;  -- Load control for Register B
-        FN      : in  STD_LOGIC_VECTOR (1 downto 0);  -- ALU function
-        AB      : in  STD_LOGIC_VECTOR (15 downto 0); -- Input data (AB)
-        C       : out STD_LOGIC_VECTOR (15 downto 0); -- Output result
-        N       : out STD_LOGIC;  -- Negative flag from ALU
-        Z       : out STD_LOGIC;  -- Zero flag from ALU
-        clk     : in  STD_LOGIC   -- Clock signal
+        ABorALU   : in  STD_LOGIC;  -- Select between AB or ALU result
+        LDA       : in  STD_LOGIC;  -- Load control for Register A
+        LDB       : in  STD_LOGIC;  -- Load control for Register B
+        reset_int : in  STD_LOGIC;  -- Select the reset botton
+        FN        : in  STD_LOGIC_VECTOR (1 downto 0);  -- ALU function
+        AB        : in  STD_LOGIC_VECTOR (15 downto 0); -- Input data (AB)
+        C         : out STD_LOGIC_VECTOR (15 downto 0); -- Output result
+        N         : out STD_LOGIC;  -- Negative flag from ALU
+        Z         : out STD_LOGIC;  -- Zero flag from ALU
+        clk       : in  STD_LOGIC   -- Clock signal
     );
 end DataPath;
 
@@ -46,6 +47,7 @@ architecture Struct of DataPath is
             C       : in  STD_LOGIC_VECTOR (15 downto 0);
             Selc    : in  STD_LOGIC;
             clk     : in  STD_LOGIC;
+            reset_int : in STD_LOGIC;
             Operator: out STD_LOGIC_VECTOR (15 downto 0)
         );
     end component;
@@ -61,6 +63,7 @@ begin
             C => C_internal,          -- Input data (AB) to the register
             Selc => LDA,      -- Load signal for Register A
             clk => clk,       -- Clock
+            reset_int => reset_int,  -- Reset botton
             Operator => OpA   -- Output from Register A
         );
 
@@ -70,6 +73,7 @@ begin
             C => C_internal,          -- Input data (AB) to the register
             Selc => LDB,      -- Load signal for Register B
             clk => clk,       -- Clock
+            reset_int => reset_int,  -- Reset botton
             Operator => OpB   -- Output from Register B
         );
 

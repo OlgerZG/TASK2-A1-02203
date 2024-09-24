@@ -30,19 +30,19 @@ architecture testbench of gcd_tb is
 		port (clk : in std_logic;             -- The clock signal.
 			reset : in  std_logic;              -- Reset the module.
 			req   : in  std_logic;              -- Start computation.
-			AB    : in  unsigned(15 downto 0);  -- The two operands.
-			teststate : out unsigned(3 downto 0);
-			Reg_A_test : out unsigned(15 downto 0);
-            Reg_B_test : out unsigned(15 downto 0);
+			AB    : in  STD_LOGIC_VECTOR(15 downto 0);  -- The two operands.
+			teststate : out STD_LOGIC_VECTOR(3 downto 0);
+			Reg_A_test : out STD_LOGIC_VECTOR(15 downto 0);
+            Reg_B_test : out STD_LOGIC_VECTOR(15 downto 0);
 			ack   : out std_logic;              -- Computation is complete.
-			C     : out unsigned(15 downto 0)); -- The result.
+			C     : out STD_LOGIC_VECTOR(15 downto 0)); -- The result.
 	end component;
 
 	-- Internal signals
 	signal clk, reset : std_logic;
 	signal req, ack   : std_logic;
-	signal AB, C, Reg_A_test, Reg_B_test  : unsigned(15 downto 0);
-	signal teststate : unsigned(3 downto 0);
+	signal AB, C, Reg_A_test, Reg_B_test  : STD_LOGIC_VECTOR(15 downto 0);
+	signal teststate : STD_LOGIC_VECTOR(3 downto 0);
 
 begin
 
@@ -62,56 +62,110 @@ begin
 	begin
 		clk <= '0'; reset <= '1'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
 		clk <= '1'; reset <= '1'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --open the state machine (state 0)
-		clk <= '0'; reset <= '0'; req <= '1'; AB <= "0000100011111100"; wait for 15 ns;
-		clk <= '1'; reset <= '0'; req <= '1'; AB <= "0000100011111100"; wait for 15 ns; --register a (state 1)
-		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000100011111101"; wait for 15 ns;
-		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000100011111101"; wait for 15 ns; --register b (state 2)
-		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
-		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --go to the loop state (a<b) (state 3)
-		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
-		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --(state 5)(state 4)
-		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
-		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --give the answer (state 6)
-		clk <= '0'; reset <= '1'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
-		clk <= '1'; reset <= '1'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --go back to init (state 0)
-		clk <= '0'; reset <= '0'; req <= '1'; AB <= "0000100011111100"; wait for 15 ns;
-		clk <= '1'; reset <= '0'; req <= '1'; AB <= "0000100011111100"; wait for 15 ns; --register a (state 1)
-		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000100011111010"; wait for 15 ns;
-		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000100011111010"; wait for 15 ns; --register b (state 2)
-		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
-		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --go to the loop state (a>b)
+		clk <= '0'; reset <= '0'; req <= '1'; AB <= "0000000000000110"; wait for 15 ns;
+		clk <= '1'; reset <= '0'; req <= '1'; AB <= "0000000000000110"; wait for 15 ns; --register a (state 1)
+		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000000000010000"; wait for 15 ns;
+		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000010000"; wait for 15 ns; --register b (state 2)
+		clk <= '0'; reset <= '0'; req <= '1'; AB <= "0000000000000000"; wait for 15 ns;
+		clk <= '1'; reset <= '0'; req <= '1'; AB <= "0000000000000000"; wait for 15 ns; --go to the loop state (a<b) (state 3)
 		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
 		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --(state 5)(state 4)
 		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
 		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --give the answer (state 6)
 		clk <= '0'; reset <= '1'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
 		clk <= '1'; reset <= '1'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --go back to init (state 0)
-		clk <= '0'; reset <= '0'; req <= '1'; AB <= "0000100011111100"; wait for 15 ns;
-		clk <= '1'; reset <= '0'; req <= '1'; AB <= "0000100011111100"; wait for 15 ns; --register a (state 1)
-		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000100011111100"; wait for 15 ns;
-		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000100011111100"; wait for 15 ns; --register b (state 2)
+		clk <= '0'; reset <= '0'; req <= '1'; AB <= "0000000000010000"; wait for 15 ns;
+		clk <= '1'; reset <= '0'; req <= '1'; AB <= "0000000000010000"; wait for 15 ns; --register a (state 1)
+		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000000000000110"; wait for 15 ns;
+		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000000110"; wait for 15 ns; --register b (state 2)
+		clk <= '0'; reset <= '0'; req <= '1'; AB <= "0000000000000000"; wait for 15 ns;
+		clk <= '1'; reset <= '0'; req <= '1'; AB <= "0000000000000000"; wait for 15 ns; --go to the loop state (a>b)
 		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
-		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --go to the loop state (a=b)
+		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --(state 5)(state 4)
+		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
+		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --(state 5)(state 4)
+		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
+		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --(state 5)(state 4)
+		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
+		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --(state 5)(state 4)
+		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
+		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --(state 5)(state 4)
+		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
+		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --(state 5)(state 4)
+		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
+		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --(state 5)(state 4)
+		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
+		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --(state 5)(state 4)
+		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
+		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --(state 5)(state 4)
+		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
+		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --(state 5)(state 4)
+		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
+		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --(state 5)(state 4)
+		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
+		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --(state 5)(state 4)
+		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
+		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --(state 5)(state 4)
+		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
+		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --(state 5)(state 4)
+		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
+		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --(state 5)(state 4)
+		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
+		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --(state 5)(state 4)
+		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
+		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --(state 5)(state 4)
+		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
+		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --(state 5)(state 4)
+		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
+		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --(state 5)(state 4)
+		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
+		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --(state 5)(state 4)
+		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
+		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --(state 5)(state 4)
+		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
+		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --(state 5)(state 4)
+		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
+		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --(state 5)(state 4)
+		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
+		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --(state 5)(state 4)
+		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
+		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --(state 5)(state 4)
+		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
+		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --(state 5)(state 4)
+		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
+		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --(state 5)(state 4)
+		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
+		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --(state 5)(state 4)
 		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
 		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --give the answer (state 6)
 		clk <= '0'; reset <= '1'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
 		clk <= '1'; reset <= '1'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --go back to init (state 0)
-		clk <= '0'; reset <= '0'; req <= '1'; AB <= "0000100011111100"; wait for 15 ns;
-		clk <= '1'; reset <= '0'; req <= '1'; AB <= "0000100011111100"; wait for 15 ns; --register a (state 1)
-		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000100011111100"; wait for 15 ns;
-		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000100011111100"; wait for 15 ns; --register b (state 2)
-		clk <= '0'; reset <= '1'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
-		clk <= '1'; reset <= '1'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --go back to init (state 0)
-		clk <= '0'; reset <= '0'; req <= '1'; AB <= "0000100011111100"; wait for 15 ns;
-		clk <= '1'; reset <= '0'; req <= '1'; AB <= "0000100011111100"; wait for 15 ns; --register a (state 1)
-		clk <= '0'; reset <= '1'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
-		clk <= '1'; reset <= '1'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --go back to init (state 0)
-		clk <= '0'; reset <= '0'; req <= '1'; AB <= "0000100011111100"; wait for 15 ns;
-		clk <= '1'; reset <= '0'; req <= '1'; AB <= "0000100011111100"; wait for 15 ns; --register a (state 1)
-		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000100011111110"; wait for 15 ns;
-		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000100011111110"; wait for 15 ns; --register b (state 2)
+		clk <= '0'; reset <= '0'; req <= '1'; AB <= "0000000000010000"; wait for 15 ns;
+		clk <= '1'; reset <= '0'; req <= '1'; AB <= "0000000000010000"; wait for 15 ns; --register a (state 1)
+		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000000000010000"; wait for 15 ns;
+		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000010000"; wait for 15 ns; --register b (state 2)
+		clk <= '0'; reset <= '0'; req <= '1'; AB <= "0000000000000000"; wait for 15 ns;
+		clk <= '1'; reset <= '0'; req <= '1'; AB <= "0000000000000000"; wait for 15 ns; --go to the loop state (a=b)
 		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
-		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --go to the loop state (a<b)
+		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --give the answer (state 6)
+		clk <= '0'; reset <= '1'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
+		clk <= '1'; reset <= '1'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --go back to init (state 0)
+		clk <= '0'; reset <= '0'; req <= '1'; AB <= "0000000000010000"; wait for 15 ns;
+		clk <= '1'; reset <= '0'; req <= '1'; AB <= "0000000000010000"; wait for 15 ns; --register a (state 1)
+		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000000000010000"; wait for 15 ns;
+		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000010000"; wait for 15 ns; --register b (state 2)
+		clk <= '0'; reset <= '1'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
+		clk <= '1'; reset <= '1'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --go back to init (state 0)
+		clk <= '0'; reset <= '0'; req <= '1'; AB <= "0000000000010000"; wait for 15 ns;
+		clk <= '1'; reset <= '0'; req <= '1'; AB <= "0000000000010000"; wait for 15 ns; --register a (state 1)
+		clk <= '0'; reset <= '1'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
+		clk <= '1'; reset <= '1'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns; --go back to init (state 0)
+		clk <= '0'; reset <= '0'; req <= '1'; AB <= "0000000000010000"; wait for 15 ns;
+		clk <= '1'; reset <= '0'; req <= '1'; AB <= "0000000000010000"; wait for 15 ns; --register a (state 1)
+		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000000000010000"; wait for 15 ns;
+		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000010000"; wait for 15 ns; --register b (state 2)
+		clk <= '0'; reset <= '0'; req <= '1'; AB <= "0000000000000000"; wait for 15 ns;
+		clk <= '1'; reset <= '0'; req <= '1'; AB <= "0000000000000000"; wait for 15 ns; --go to the loop state (a<b)
 		clk <= '0'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
 		clk <= '1'; reset <= '0'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;
 		clk <= '0'; reset <= '1'; req <= '0'; AB <= "0000000000000000"; wait for 15 ns;

@@ -44,8 +44,8 @@ begin
     process (AB, Y, ABorALU)
     begin
     case (ABorALU) is
-        when '0' => C <= AB;
-        when '1' => C <= Y;
+        when '1' => C <= AB;
+        when '0' => C <= Y;
         when others => C <= "XXXXXXXXXXXXXXXX";
     end case;
     end process;

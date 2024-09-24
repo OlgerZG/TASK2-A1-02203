@@ -60,7 +60,7 @@ begin
     case state is
         WHEN INIT =>
 	          ack <= '0';
-		      ABorALU <= '0';
+		      ABorALU <= '1';
 		      LDA <= '1';
 		  IF req='0' THEN
 			  next_state <= INIT;
@@ -81,7 +81,8 @@ begin
 			  next_state <= LOOP_NODE;
 		  END IF;
 		  
-	   WHEN LOOP_NODE =>
+	   WHEN LOOP_NODE => 
+		  ABorALU <= '0';
 		  if Z = '1' then   
             next_state <= ACK_OUT;
           elsif N = '1' then 
